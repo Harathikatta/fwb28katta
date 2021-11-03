@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  - var results = [{"types":"Anarkali", "fabric": "velvet","cost":2000},{"types":"skirt", "fabric": "crape","cost":1000},{"types":"jeans", "fabric": "denim","cost":1500}]
+  div(class="container-fuild")
+    div(class="row")
+      each result,index in results
+        div(class = "col-sm-2" id=index onclick=`buy(${index})`) 
+          p #{result.types}
+          p #{result.fabric}
+          p #{result.cost}
+
+  script.
+    function buy(element){
+      alert(`You purchased item ${element+1}.`)
+    }
